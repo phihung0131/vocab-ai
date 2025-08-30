@@ -34,7 +34,7 @@ Mỗi đối tượng bài tập trong mảng exercises phải có cấu trúc c
     "key_vocabulary": [
       {
         "word": "từ vựng chính",
-        "ipa": "/phiên âm IPA/"
+        "ipa": "/phiên âm IPA/ : /nghĩa tiếng việt/"
       }
     ]
   },
@@ -70,7 +70,7 @@ Mỗi đối tượng bài tập trong mảng exercises phải có cấu trúc c
 **Luật bổ sung:**
 - **Markdown:** Sử dụng Markdown để định dạng nội dung trong các trường instruction, các chuỗi văn bản trong problem, và explanation để tăng tính rõ ràng. Ví dụ: **từ khóa**, *ghi chú*.
 - **Đa dạng:** Phân bổ các exercise_type một cách hợp lý để người học không bị nhàm chán.
-- **Phiên âm:** Luôn cung cấp phiên âm IPA chính xác trong trường key_vocabulary.
+- **Phiên âm:** Luôn cung cấp phiên âm IPA chính xác và nghĩa kèm sau trong trường key_vocabulary.
 - **Ngôn ngữ:** Tất cả nội dung văn bản cho người dùng phải bằng tiếng Việt.`;
 
 export const generateVocabularyExercises = async (topic, numberOfQuestions, forceNew = false) => {
