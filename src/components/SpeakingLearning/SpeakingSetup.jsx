@@ -52,23 +52,8 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
   };
 
   return (
-    <div style={{ 
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      padding: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
-      <Card style={{
-        maxWidth: '600px',
-        width: '100%',
-        borderRadius: '20px',
-        border: 'none',
-        boxShadow: '0 12px 48px rgba(0, 0, 0, 0.15)',
-        background: 'rgba(255, 255, 255, 0.98)',
-        backdropFilter: 'blur(10px)'
-      }}>
+    <div className="speaking-setup-container">
+      <Card className="speaking-setup-card">
         <Space direction="vertical" size="large" style={{ width: '100%' }}>
           <div style={{
             textAlign: 'center',
@@ -206,6 +191,50 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
           </Form>
         </Space>
       </Card>
+      
+      <style jsx>{`
+        .speaking-setup-container {
+          min-height: 100vh;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .speaking-setup-card {
+          max-width: 600px;
+          width: 100%;
+          border-radius: 20px !important;
+          border: none !important;
+          box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+          .speaking-setup-container {
+            padding: 8px;
+            align-items: flex-start;
+          }
+
+          .speaking-setup-card {
+            margin-top: 16px;
+            margin-left: 4px;
+            margin-right: 4px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .speaking-setup-container {
+            padding: 4px;
+          }
+
+          .speaking-setup-card {
+            margin: 2px;
+          }
+        }
+      `}</style>
     </div>
   );
 };

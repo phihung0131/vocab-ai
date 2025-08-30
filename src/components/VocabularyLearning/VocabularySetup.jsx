@@ -224,21 +224,64 @@ const VocabularySetup = ({ onBack, onStartLearning }) => {
 
         @media (max-width: 768px) {
           .setup-container {
-            padding: 16px;
+            padding: 8px;
             align-items: flex-start;
           }
 
           .setup-card {
-            margin-top: 20px;
+            margin-top: 16px;
+            margin-left: 4px;
+            margin-right: 4px;
           }
 
           .back-button {
             position: relative;
             margin-bottom: 16px;
+            font-size: 16px !important;
           }
 
           .setup-title {
-            font-size: 1.5rem !important;
+            font-size: 1.8rem !important;
+          }
+
+          .modern-input {
+            font-size: 16px !important;
+            height: 48px !important;
+          }
+
+          .submit-button {
+            height: 52px !important;
+            font-size: 18px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .setup-container {
+            padding: 4px;
+          }
+
+          .setup-card {
+            margin: 2px;
+          }
+
+          .back-button {
+            font-size: 18px !important;
+          }
+
+          .setup-title {
+            font-size: 2rem !important;
+            line-height: 1.3 !important;
+          }
+
+          .modern-input {
+            font-size: 18px !important;
+            height: 52px !important;
+            padding: 14px 16px !important;
+          }
+
+          .submit-button {
+            height: 56px !important;
+            font-size: 20px !important;
           }
         }
       `}</style>

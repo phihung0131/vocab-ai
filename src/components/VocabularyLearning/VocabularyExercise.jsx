@@ -105,24 +105,8 @@ const VocabularyExercise = ({ exercises, onBack, onComplete }) => {
   }
 
   return (
-    <div style={{ 
-      minHeight: '100vh',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      padding: '20px',
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'center',
-      paddingTop: '40px'
-    }}>
-      <Card style={{
-        maxWidth: '900px',
-        width: '100%',
-        borderRadius: '20px',
-        border: 'none',
-        boxShadow: '0 12px 48px rgba(0, 0, 0, 0.15)',
-        background: 'rgba(255, 255, 255, 0.98)',
-        backdropFilter: 'blur(10px)'
-      }}>
+    <div className="exercise-container">
+      <Card className="exercise-card">
         <Space direction="vertical" size="large" style={{ width: '100%' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Button 
@@ -199,6 +183,50 @@ const VocabularyExercise = ({ exercises, onBack, onComplete }) => {
           </div>
         </Space>
       </Card>
+      
+      <style jsx>{`
+        .exercise-container {
+          min-height: 100vh;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          padding: 20px;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          padding-top: 40px;
+        }
+
+        .exercise-card {
+          max-width: 900px;
+          width: 100%;
+          border-radius: 20px !important;
+          border: none !important;
+          box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+          .exercise-container {
+            padding: 8px;
+            padding-top: 20px;
+          }
+
+          .exercise-card {
+            margin: 4px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .exercise-container {
+            padding: 4px;
+            padding-top: 16px;
+          }
+
+          .exercise-card {
+            margin: 2px;
+          }
+        }
+      `}</style>
     </div>
   );
 };

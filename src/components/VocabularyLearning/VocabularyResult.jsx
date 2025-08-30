@@ -26,8 +26,8 @@ const VocabularyResult = ({ score, total, onBack, onRestart }) => {
   };
 
   return (
-    <div style={{ padding: '40px 20px', maxWidth: '600px', margin: '0 auto' }}>
-      <Card>
+    <div className="result-container">
+      <Card className="result-card">
         <Space direction="vertical" size="large" style={{ width: '100%', textAlign: 'center' }}>
           <Result
             icon={<TrophyOutlined style={{ color: resultStatus.color }} />}
@@ -86,6 +86,50 @@ const VocabularyResult = ({ score, total, onBack, onRestart }) => {
           </div>
         </Space>
       </Card>
+      
+      <style jsx>{`
+        .result-container {
+          min-height: 100vh;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .result-card {
+          max-width: 600px;
+          width: 100%;
+          border-radius: 20px !important;
+          border: none !important;
+          box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 768px) {
+          .result-container {
+            padding: 8px;
+            align-items: flex-start;
+            padding-top: 20px;
+          }
+
+          .result-card {
+            margin: 4px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .result-container {
+            padding: 4px;
+            padding-top: 16px;
+          }
+
+          .result-card {
+            margin: 2px;
+          }
+        }
+      `}</style>
     </div>
   );
 };

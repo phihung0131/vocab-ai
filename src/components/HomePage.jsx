@@ -359,35 +359,49 @@ const HomePage = ({ onSelectMode, onLoadCachedExercise }) => {
 
         @media (max-width: 768px) {
           .homepage-container {
-            padding: 16px;
+            padding: 8px;
             align-items: flex-start;
             min-height: 100vh;
           }
 
           .hero-content {
-            padding: 32px 24px;
-            margin-bottom: 32px;
+            padding: 24px 16px;
+            margin-bottom: 24px;
           }
 
           .hero-title {
-            font-size: 2.5rem !important;
+            font-size: 2.8rem !important;
           }
 
           .hero-subtitle {
+            font-size: 1.3rem !important;
+          }
+
+          .hero-description {
             font-size: 1.1rem !important;
           }
 
           .card-content {
-            padding: 20px;
+            padding: 24px 16px;
           }
 
           .card-icon {
-            font-size: 40px;
-            height: 56px;
+            font-size: 48px;
+            height: 64px;
+          }
+
+          .card-title {
+            font-size: 1.4rem !important;
+          }
+
+          .card-description {
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
           }
 
           .history-section {
-            padding: 20px;
+            padding: 16px 12px;
+            margin: 0 4px;
           }
 
           .history-content {
@@ -395,19 +409,65 @@ const HomePage = ({ onSelectMode, onLoadCachedExercise }) => {
             align-items: flex-start;
             gap: 8px;
           }
+
+          .history-toggle {
+            font-size: 16px !important;
+          }
         }
 
         @media (max-width: 480px) {
+          .homepage-container {
+            padding: 4px;
+          }
+
+          .hero-content {
+            padding: 20px 12px;
+            margin-bottom: 20px;
+          }
+
           .hero-title {
-            font-size: 2rem !important;
+            font-size: 3rem !important;
+            line-height: 1.2 !important;
+          }
+
+          .hero-subtitle {
+            font-size: 1.4rem !important;
+            line-height: 1.3 !important;
+          }
+
+          .hero-description {
+            font-size: 1.2rem !important;
+            line-height: 1.6 !important;
           }
 
           .learning-options {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+          }
+
+          .card-content {
+            padding: 20px 12px;
+          }
+
+          .card-title {
+            font-size: 1.5rem !important;
+          }
+
+          .card-description {
+            font-size: 1.1rem !important;
+            line-height: 1.7 !important;
           }
 
           .card-features {
-            gap: 4px;
+            gap: 6px;
+          }
+
+          .history-section {
+            padding: 12px 8px;
+            margin: 0 2px;
+          }
+
+          .history-toggle {
+            font-size: 18px !important;
           }
         }
       `}</style>
