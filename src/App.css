@@ -1,0 +1,260 @@
+/* Modern Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* AntDesign Component Customization */
+.ant-card {
+  border-radius: 16px !important;
+  border: none !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-card:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+.ant-btn {
+  border-radius: 10px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid transparent !important;
+}
+
+.ant-btn-primary {
+  background: linear-gradient(135deg, #1890ff, #40a9ff) !important;
+  border: none !important;
+  box-shadow: 0 2px 12px rgba(24, 144, 255, 0.3) !important;
+}
+
+.ant-btn-primary:hover {
+  background: linear-gradient(135deg, #40a9ff, #1890ff) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 20px rgba(24, 144, 255, 0.4) !important;
+}
+
+.ant-input, .ant-input-number {
+  border-radius: 10px !important;
+  border: 2px solid #e8e8e8 !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-input:hover, .ant-input-number:hover {
+  border-color: #1890ff !important;
+}
+
+.ant-input:focus, .ant-input-number:focus {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.1) !important;
+}
+
+.ant-select-selector {
+  border-radius: 10px !important;
+  border: 2px solid #e8e8e8 !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-select:hover .ant-select-selector {
+  border-color: #1890ff !important;
+}
+
+.ant-select-focused .ant-select-selector {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.1) !important;
+}
+
+.ant-radio-wrapper {
+  border-radius: 10px !important;
+  padding: 12px 16px !important;
+  border: 1px solid transparent !important;
+  transition: all 0.2s ease !important;
+  margin: 4px 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.ant-radio-wrapper:hover {
+  background-color: #f0f8ff !important;
+  border-color: #d4edda !important;
+}
+
+.ant-radio-wrapper-checked {
+  background-color: #e6f7ff !important;
+  border-color: #1890ff !important;
+}
+
+.ant-progress-line {
+  border-radius: 10px !important;
+}
+
+.ant-progress-bg {
+  border-radius: 10px !important;
+}
+
+.ant-tag {
+  border-radius: 8px !important;
+  border: none !important;
+  font-weight: 500 !important;
+  padding: 4px 12px !important;
+}
+
+.ant-alert {
+  border-radius: 12px !important;
+  border: none !important;
+}
+
+.ant-list-item {
+  border-radius: 8px !important;
+  transition: background-color 0.2s !important;
+  margin: 4px 0 !important;
+  padding: 12px 16px !important;
+}
+
+.ant-typography h1, .ant-typography h2, .ant-typography h3, .ant-typography h4, .ant-typography h5 {
+  font-weight: 600 !important;
+  color: #1a1a1a !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #1890ff, #40a9ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #40a9ff, #1890ff);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ant-card {
+    margin: 8px !important;
+    border-radius: 16px !important;
+  }
+
+  .ant-radio-wrapper {
+    padding: 10px 14px !important;
+  }
+
+  .ant-btn {
+    border-radius: 10px !important;
+  }
+
+  .ant-input, .ant-input-number, .ant-select-selector {
+    border-radius: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .ant-card {
+    margin: 4px !important;
+    border-radius: 14px !important;
+  }
+
+  .ant-typography h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .ant-typography h2 {
+    font-size: 1.5rem !important;
+  }
+
+  .ant-typography h3 {
+    font-size: 1.3rem !important;
+  }
+}
+
+/* Loading Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ant-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Button Hover Effects */
+.ant-btn:not(.ant-btn-primary):hover {
+  background: rgba(24, 144, 255, 0.05) !important;
+  border-color: #1890ff !important;
+  color: #1890ff !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Form Styling */
+.ant-form-item-label > label {
+  font-weight: 600 !important;
+  color: #1a1a1a !important;
+}
+
+.ant-form-item {
+  margin-bottom: 24px !important;
+}
+
+/* Card Hover Effects */
+.ant-card.ant-card-hoverable:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Typography Improvements */
+.ant-typography {
+  color: #1a1a1a;
+}
+
+.ant-typography.ant-typography-caption {
+  color: #666;
+}
+
+/* Progress Bar Styling */
+.ant-progress-text {
+  font-weight: 600 !important;
+}
+
+/* Modal and Drawer Improvements */
+.ant-modal-content {
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+.ant-drawer-content {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
