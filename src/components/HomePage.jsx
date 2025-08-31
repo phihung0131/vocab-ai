@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Row, Col, Typography, Button, List, Empty, Tag, Modal } from 'antd';
+import { Card, Row, Col, Typography, Button, List, Empty, Tag, message } from 'antd';
 import { BookOutlined, SoundOutlined, HistoryOutlined, DeleteOutlined } from '@ant-design/icons';
 import { getHistory, clearHistory, getCachedExerciseById } from '../services/cacheService';
 
@@ -14,23 +14,23 @@ const HomePage = ({ onSelectMode, onLoadCachedExercise }) => {
   }, []);
 
   const handleClearHistory = () => {
-    Modal.confirm({
-      title: 'Xóa lịch sử',
-      content: 'Bạn có chắc chắn muốn xóa toàn bộ lịch sử học tập?',
-      okText: 'Xóa',
-      cancelText: 'Hủy',
-      okType: 'danger',
-      onOk: () => {
-        try {
-          clearHistory();
-          setHistory([]);
-          setShowHistory(false);
-          console.log('History cleared successfully');
-        } catch (error) {
-          console.error('Error clearing history:', error);
-        }
+    console.log('handleClearHistory called'); // Debug log
+    
+    if (window.confirm('Bạn có chắc chắn muốn xóa toàn bộ lịch sử học tập?')) {
+      try {
+        console.log('Clearing history...'); // Debug log
+        clearHistory();
+        setHistory([]);
+        setShowHistory(false);
+        message.success('Đã xóa lịch sử thành công!');
+        console.log('History cleared successfully');
+      } catch (error) {
+        console.error('Error clearing history:', error);
+        message.error('Có lỗi xảy ra khi xóa lịch sử. Vui lòng thử lại!');
       }
-    });
+    } else {
+      console.log('Clear history cancelled'); // Debug log
+    }
   };
 
   const handleLoadHistory = (id) => {

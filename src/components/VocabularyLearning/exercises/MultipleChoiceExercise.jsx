@@ -11,10 +11,56 @@ const MultipleChoiceExercise = ({ exercise, onAnswer, showAnswer, userAnswer }) 
     }
   };
 
+  const renderQuestionWithBlank = () => {
+    const question = exercise.problem.question;
+    
+    // Handle both BLANK and __BLANK__ formats
+    const blankPattern = /\b(BLANK|__BLANK__)\b/g;
+    const parts = question.split(blankPattern);
+    
+    return (
+      <div style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '20px' }}>
+        {parts.map((part, index) => {
+          // Check if this part is a BLANK placeholder
+          if (part === 'BLANK' || part === '__BLANK__') {
+            return (
+              <span 
+                key={index}
+                style={{
+                  display: 'inline-block',
+                  minWidth: '80px',
+                  padding: '4px 12px',
+                  margin: '0 4px',
+                  border: '2px dashed #d9d9d9',
+                  borderRadius: '4px',
+                  textAlign: 'center',
+                  backgroundColor: '#fafafa',
+                  borderColor: '#d9d9d9'
+                }}
+              >
+                ___
+              </span>
+            );
+          }
+          
+          // Regular text part
+          return (
+            <ReactMarkdown 
+              key={index} 
+              components={{ p: ({ children }) => <span>{children}</span> }}
+            >
+              {part}
+            </ReactMarkdown>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <Space direction="vertical" size="large" style={{ width: '100%' }}>
       <div>
-        <ReactMarkdown>{exercise.problem.question}</ReactMarkdown>
+        {renderQuestionWithBlank()}
       </div>
       
       <Radio.Group 

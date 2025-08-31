@@ -52,34 +52,19 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
   };
 
   return (
-    <div className="speaking-setup-container">
-      <Card className="speaking-setup-card">
+    <div className="setup-container">
+      <Card className="setup-card">
         <Space direction="vertical" size="large" style={{ width: '100%' }}>
-          <div style={{
-            textAlign: 'center',
-            position: 'relative'
-          }}>
+          <div className="setup-header">
             <Button 
               type="text" 
               icon={<ArrowLeftOutlined />} 
               onClick={onBack}
-              style={{
-                position: 'absolute',
-                left: '0',
-                top: '0',
-                color: '#666',
-                fontWeight: '500'
-              }}
+              className="back-button"
             >
               Quay lại
             </Button>
-            <Title level={2} style={{
-              margin: '0',
-              color: '#1a1a1a',
-              fontWeight: '600'
-            }}>
-              Thiết lập bài học nói
-            </Title>
+            <Title level={2} className="setup-title">Thiết lập bài học nói</Title>
           </div>
 
           <Form
@@ -87,7 +72,7 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
             layout="vertical"
             onFinish={handleSubmit}
             onValuesChange={handleValuesChange}
-            style={{ paddingTop: '8px' }}
+            className="setup-form"
           >
             <Form.Item
               label={<Text strong>Chủ đề luyện nói</Text>}
@@ -100,11 +85,7 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
               <Input 
                 placeholder="Ví dụ: giới thiệu bản thân, mua sắm, du lịch..."
                 size="large"
-                style={{
-                  borderRadius: '12px',
-                  border: '2px solid #e8e8e8',
-                  transition: 'all 0.3s ease'
-                }}
+                className="modern-input"
               />
             </Form.Item>
 
@@ -118,18 +99,13 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
               <Select 
                 placeholder="Chọn trình độ tiếng Anh của bạn"
                 size="large"
-                style={{
-                  borderRadius: '12px'
-                }}
+                className="modern-input"
               >
                 {levels.map(level => (
                   <Option key={level.value} value={level.value}>
-                    <div>
-                      <div style={{ fontWeight: '500' }}>{level.label}</div>
-                      <div style={{ fontSize: '12px', color: '#666' }}>{level.description}</div>
-                    </div>
-                  </Option>
-                ))}
+                        <div style={{ fontWeight: '500' }}>{level.label}</div>
+                    </Option>
+                  ))}
               </Select>
             </Form.Item>
 
@@ -166,17 +142,7 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
                 size="large"
                 icon={createNew ? <ReloadOutlined /> : <PlayCircleOutlined />}
                 loading={loading}
-                style={{
-                  width: '100%',
-                  height: '48px',
-                  borderRadius: '12px',
-                  fontWeight: '600',
-                  fontSize: '16px',
-                  backgroundColor: '#52c41a',
-                  borderColor: '#52c41a',
-                  boxShadow: '0 4px 16px rgba(82, 196, 26, 0.3)',
-                  border: 'none'
-                }}
+                className="submit-button"
               >
                 {loading 
                   ? 'Đang tạo bài học...' 
@@ -191,9 +157,9 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
           </Form>
         </Space>
       </Card>
-      
+
       <style jsx>{`
-        .speaking-setup-container {
+        .setup-container {
           min-height: 100vh;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           padding: 20px;
@@ -202,7 +168,7 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
           justify-content: center;
         }
 
-        .speaking-setup-card {
+        .setup-card {
           max-width: 600px;
           width: 100%;
           border-radius: 20px !important;
@@ -212,26 +178,119 @@ const SpeakingSetup = ({ onBack, onStartLearning }) => {
           backdrop-filter: blur(10px);
         }
 
+        .setup-header {
+          text-align: center;
+          position: relative;
+        }
+
+        .back-button {
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: #666 !important;
+          font-weight: 500 !important;
+        }
+
+        .setup-title {
+          margin: 0 !important;
+          color: #1a1a1a !important;
+          font-weight: 600 !important;
+        }
+
+        .setup-form {
+          padding-top: 8px;
+        }
+
+        .modern-input {
+          border-radius: 12px !important;
+          border: 2px solid #e8e8e8 !important;
+          transition: all 0.3s ease !important;
+        }
+
+        .modern-input:hover {
+          border-color: #1890ff !important;
+        }
+
+        .modern-input:focus {
+          border-color: #1890ff !important;
+          box-shadow: 0 0 0 4px rgba(24, 144, 255, 0.1) !important;
+        }
+
+        .submit-button {
+          width: 100%;
+          height: 48px !important;
+          border-radius: 12px !important;
+          font-weight: 600 !important;
+          font-size: 16px !important;
+          box-shadow: 0 4px 16px rgba(24, 144, 255, 0.3) !important;
+          border: none !important;
+        }
+
+        .submit-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 24px rgba(24, 144, 255, 0.4) !important;
+        }
+
         @media (max-width: 768px) {
-          .speaking-setup-container {
+          .setup-container {
             padding: 8px;
             align-items: flex-start;
           }
 
-          .speaking-setup-card {
+          .setup-card {
             margin-top: 16px;
             margin-left: 4px;
             margin-right: 4px;
           }
+
+          .back-button {
+            position: relative;
+            margin-bottom: 16px;
+            font-size: 16px !important;
+          }
+
+          .setup-title {
+            font-size: 1.8rem !important;
+          }
+
+          .modern-input {
+            font-size: 16px !important;
+            height: 48px !important;
+          }
+
+          .submit-button {
+            height: 52px !important;
+            font-size: 18px !important;
+          }
         }
 
         @media (max-width: 480px) {
-          .speaking-setup-container {
+          .setup-container {
             padding: 4px;
           }
 
-          .speaking-setup-card {
+          .setup-card {
             margin: 2px;
+          }
+
+          .back-button {
+            font-size: 18px !important;
+          }
+
+          .setup-title {
+            font-size: 2rem !important;
+            line-height: 1.3 !important;
+          }
+
+          .modern-input {
+            font-size: 18px !important;
+            height: 52px !important;
+            padding: 14px 16px !important;
+          }
+
+          .submit-button {
+            height: 56px !important;
+            font-size: 20px !important;
           }
         }
       `}</style>
